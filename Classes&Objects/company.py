@@ -1,4 +1,4 @@
-from employee import Employee
+from employee import Employee, SalaryEmployee, HourlyEmployee, ComissionEmployee
 
 
 class Company:
@@ -17,7 +17,7 @@ class Company:
     def pay_employees(self):
         print('Paying employees: ')
         for i in self.employees:
-            print(f'Paycheck for {i.fname}, {i.lname}')
+            print(f'Paycheck for {i.fname} {i.lname}')
             print(f'Amount: ${i.calculate_paycheck():,.2f}')
             print("------------")
 
@@ -25,11 +25,11 @@ class Company:
 def main():
     my_company = Company()
 
-    employee_1 = Employee('Sarah', 'Jackson', 50000)
+    employee_1 = SalaryEmployee('Sarah', 'Jackson', 50000)
     my_company.add_employee(employee_1)
-    employee_2 = Employee('Lee', 'Smith', 25000)
+    employee_2 = HourlyEmployee('Lee', 'Smith', 25, 50)
     my_company.add_employee(employee_2)
-    employee_3 = Employee('Bob', 'Brown', 60000)
+    employee_3 = ComissionEmployee('Bob', 'Brown', 30000, 5, 200)
     my_company.add_employee(employee_3)
 
     my_company.display_employees()
